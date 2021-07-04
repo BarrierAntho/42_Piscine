@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "ex00/ft_ft.c"
-//#include "ex01/ft_ultimate_ft.c"
+#include "ex01/ft_ultimate_ft.c"
 #include "ex02/ft_swap.c"
 #include "ex03/ft_div_mod.c"
 #include "ex04/ft_ultimate_div_mod.c"
@@ -23,12 +23,31 @@ int	main(void)
 
 //////////////////////////////////////////////////
 	printf("Ex01\n");
-//	int	n1;
-//	n1 = 0;
-//	int	*********prt1;
-//	prt1 = &n1;
-//	ft_ultimate_ft(ptr1);
-//	printf("%d\n", *ptr1);
+	int	n1;
+	n1 = 0;
+	int	*********ptr19;
+	int	********ptr18;
+	int	*******ptr17;
+	int	******ptr16;
+	int	*****ptr15;
+	int	****ptr14;
+	int	***ptr13;
+	int	**ptr12;
+	int	*ptr11 = &n1;
+	ptr19 = &ptr18;
+	ptr18 = &ptr17;
+	ptr17 = &ptr16;
+	ptr16 = &ptr15;
+	ptr15 = &ptr14;
+	ptr14 = &ptr13;
+	ptr13 = &ptr12;
+	ptr12 = &ptr11;
+
+	printf("ptr19 : %d\n", *********ptr19);
+	printf("n1 : %d\n", *********ptr19);
+	ft_ultimate_ft(ptr19);
+	printf("ptr19 : %d\n", *********ptr19);
+	printf("n1 : %d\n", *********ptr19);
 	printf("\n");
 
 //////////////////////////////////////////////////
