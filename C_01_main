@@ -1,0 +1,101 @@
+#include <stdio.h>
+
+#include "ex00/ft_ft.c"
+//#include "ex01/ft_ultimate_ft.c"
+#include "ex02/ft_swap.c"
+#include "ex03/ft_div_mod.c"
+#include "ex04/ft_ultimate_div_mod.c"
+#include "ex05/ft_putstr.c"
+#include "ex06/ft_strlen.c"
+//#include "ex07/ft_putnbr.c"
+//#include "ex08/ft_print_combn.c"
+
+int	main(void)
+{
+	printf("Ex00\n");
+	int	n0;
+	n0 = 0;
+	int	*ptr0;
+	ptr0 = &n0;
+	ft_ft(ptr0);
+	printf("%d\n", *ptr0);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex01\n");
+//	int	n1;
+//	n1 = 0;
+//	int	*********prt1;
+//	prt1 = &n1;
+//	ft_ultimate_ft(ptr1);
+//	printf("%d\n", *ptr1);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex02\n");
+	int	n21;
+	n21 = 42;
+	int	n22;
+	n22 = 24;
+	int	*ptr21;
+	ptr21 = &n21;
+	int	*ptr22;
+	ptr22 = &n22;
+	printf("ptr21 : %d\nptr22 : %d\n", *ptr21, *ptr22);
+	ft_swap(ptr21, ptr22);
+	printf("ptr21 : %d\nptr22 : %d\n", *ptr21, *ptr22);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex03\n");
+	int	n31, n32;
+	n31 = 10;
+	n32 = 7;
+	int result, res_mod;
+	result = 0;
+	res_mod = 0;
+	int *ptr31, *ptr32;
+	ptr31 = &result;
+	ptr32 = &res_mod;
+	printf("a = %d et b = %d\n", n31, n32);
+	ft_div_mod(n31, n32, ptr31, ptr32);
+	printf("resultat = %d\nmod = %d\n", *ptr31, *ptr32);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex04\n");
+	int	n41, n42;
+	n41 = 10;
+	n42 = 7;
+	int	*ptr41, *ptr42;
+	ptr41 = &n41;
+	ptr42 = &n42;
+	printf("a = %d et b = %d\n", *ptr41, *ptr42);
+	ft_ultimate_div_mod(ptr41, ptr42);
+	printf("resultat = %d\nmod = %d\n", *ptr41, *ptr42);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex05\n");
+	char	*txt5 = "Hello World !";
+	ft_putstr(txt5);
+	printf("\n\n");
+
+//////////////////////////////////////////////////
+	printf("Ex06\n");
+	char	*txt6 = "Hello";
+	printf("len = %d\n", ft_strlen(txt6));
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex7\n");
+//	ft_putnbr(42);
+	printf("\n");
+
+//////////////////////////////////////////////////
+	printf("Ex8\n");
+//	ft_print_combn(42);
+	printf("\n");
+
+	return (0);
+}
