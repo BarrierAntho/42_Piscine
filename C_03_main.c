@@ -13,7 +13,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb);
 //Ex04
 char	*ft_strstr(char *str,char *to_find);
 //Ex05
-//unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 
 int	main(void)
 {
@@ -79,7 +79,7 @@ int	main(void)
 
 	printf("-------------------\n");
 
-	char	txt023[5] = "Hello";
+	char	txt023[15] = "Hello";
 	char	txt024[] = "World";
 	printf("txt src : %s\ntxt dest : %s\n", txt023, txt024);
 	printf("myfunc : %s\n", ft_strcat(txt023, txt024));
@@ -119,12 +119,12 @@ int	main(void)
 //	char	*ptr041 = 0;
 //	printf("Test : pointeur %p\tchar = %s\n", ptr041, ptr041);
 
-//	txt						to find		pointer		value of first char
+//	txt						to find		pointer			value of first char
 //	Hello 42 World						0x7fgfgfgf		Hello 42 World
 //	Hello 42 World			42			0x7abababa		42 World
 //	Hello 42 World			World		0x7cdcdcdc		World
 //	Hello 42 World			world		0x0				(null)
-//	Hello					People		0x0			(null)
+//	Hello					People		0x0				(null)
 
 	char	txt041[15] = "Hello 42 World";
 	char	txt042[] = "lo";
@@ -156,6 +156,42 @@ int	main(void)
 //////////////////////////////////////////////////
 	printf("###############################\n");
 	printf("Ex05\n");
+//	char dest, char src, unsigned int size_dest
+//	append src into dest
+//	dest_size - strlen(dest) - 1 char
+//	len_str(dest) + len(src)
+
+//	dest		src					len_dest	size	result		string dest
+//	Hello		Yo					5			15	7HelloYo
+//	Hello		Yo					5			10	7HelloYo
+//	Hello		Yo					5			8	7HelloYo
+//	Hello		Yo					5			7	7HelloY
+//	Hello		Yo					5			5	7Hello
+//	Hello		WorldOfWarcraft		5			15		20	HelloWorldOfWa
+//	Hello		WorldOfWarcraft		5			5		20	Hello
+//	Hello		WorldOfWarcraft		5			3		18	Hello
+
+//	Hello		WorldOfWarcraft		5			6		20	Hello
+//	Hello		WorldOfWarcraft		5			7		18	Hello
+
+//	Test data
+//	Hello
+//	World
+//	WorldOfWarcraft
+//	Yo
+	char	txt051[10] = "Hello";
+	char	txt052[] = "Yo";
+	unsigned int	size51 = 10;
+	printf("txt src : %s\ntxt dest : %s\n", txt051, txt052);
+	printf("ORIGINAL : %lu\tdest : %s\n", strlcat(txt051, txt052, size51), txt051);
+
+	printf("-------------------\n");
+
+	char	txt053[10] = "Hello";
+	char	txt054[] = "Yo";
+	unsigned int	size53 = 10;
+	printf("txt src : %s\ntxt dest : %s\n", txt053, txt054);
+	printf("myfunc : %d\tdest : %s\n", ft_strlcat(txt053, txt054, size53), txt053);
 
 	printf("\n");
 
