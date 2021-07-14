@@ -15,6 +15,7 @@ int	ft_atoi(char *str);
 // Ex04
 void	ft_putnbr_base(int nbr, char *base);
 // Ex05
+int	ft_atoi_base(char *str, char *base);
 
 int	main(void)
 {
@@ -85,8 +86,8 @@ int	main(void)
 	printf("Ex04\n");
 
 //dec		binary			hexa		octal		result
-//0			0				0			0			0
-//1			1				1			1 (p)		p
+//0			0				0			0	0
+//1			1				1			1 (p)	p
 //10		1010			A			12 (on)		(on)
 //16		10000			0f			20 (
 
@@ -100,7 +101,7 @@ int	main(void)
 //	char base_w[] = "";
 //	char base_w[] = "0";
 //	char base_w[] = "";
-	char base_w[] = "+-0123456789ABCDEF";
+	char base_w[] = "0123456A789ABCDEF";
 
 	int	n041 = -2147483648;
 
@@ -122,6 +123,115 @@ int	main(void)
 //////////////////////////////////////////////////
 	printf("###############################\n");
 	printf("Ex05\n");
+
+//	INT_MIN : -2147483648
+
+	char base_dec_05[] = "0123456789";
+	char base_bi_05[] = "01";
+	char base_hex_05[] = "0123456789ABCDEF";
+	char base_oc_05[] = "poneyvif";
+
+//	char base_w[] = "";
+//	char base_w[] = "0";
+//	char base_w[] = "";
+	char base_w_05[] = "+-0123456789ABCDEF";
+
+	char txt051[] = "";
+	char txt052[] = " ";
+	char txt053[] = "  \t";
+	char txt054[] = " \t1";
+	char txt055[] = "--++-+-15\v2";
+	char txt056[] = "-80000000";
+	char txt057[] = "ff";
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt051, ft_atoi_base(txt051, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt051, ft_atoi_base(txt051, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt051, ft_atoi_base(txt051, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt051, ft_atoi_base(txt051, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt051, ft_atoi_base(txt051, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt052, ft_atoi_base(txt052, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt052, ft_atoi_base(txt052, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt052, ft_atoi_base(txt052, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt052, ft_atoi_base(txt052, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt052, ft_atoi_base(txt052, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt053, ft_atoi_base(txt053, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt053, ft_atoi_base(txt053, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt053, ft_atoi_base(txt053, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt053, ft_atoi_base(txt053, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt053, ft_atoi_base(txt053, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt054, ft_atoi_base(txt054, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt054, ft_atoi_base(txt054, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt054, ft_atoi_base(txt054, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt054, ft_atoi_base(txt054, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt054, ft_atoi_base(txt054, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt055, ft_atoi_base(txt055, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt055, ft_atoi_base(txt055, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt055, ft_atoi_base(txt055, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt055, ft_atoi_base(txt055, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt055, ft_atoi_base(txt055, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt056, ft_atoi_base(txt056, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt056, ft_atoi_base(txt056, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt056, ft_atoi_base(txt056, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt056, ft_atoi_base(txt056, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt056, ft_atoi_base(txt056, base_w_05));
+
+	printf("-------------------\n");
+
+	printf("convert char to dec\n");
+	printf("Text : %s\tResult : %d\n", txt057, ft_atoi_base(txt057, base_dec_05));
+	printf("convert dec to binary\n");
+	printf("Text : %s\tResult : %d\n", txt057, ft_atoi_base(txt057, base_bi_05));
+	printf("convert dec to hex\n");
+	printf("Text : %s\tResult : %d\n", txt057, ft_atoi_base(txt057, base_hex_05));
+	printf("convert dec to octal\n");
+	printf("Text : %s\tResult : %d\n", txt057, ft_atoi_base(txt057, base_oc_05));
+	printf("convert dec to WRONG base\n");
+	printf("Text : %s\tResult : %d\n", txt057, ft_atoi_base(txt057, base_w_05));
 
 	printf("\n");
 
