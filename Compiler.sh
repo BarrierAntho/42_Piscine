@@ -12,6 +12,20 @@ clear && echo "Terminal cleared"
 echo "gccflag: $gccflag";
 echo "wordfile: $wordfile";
 
+if [ -z "$gccflag" ]
+then
+	gcc_flag=""
+else
+	gcc_flag="-Wall -Werror -Wextra"
+fi
+
+if [ -z "$wordfile" ]
+then
+	word_file=""
+else
+	word_file=$(cat $wordfile | tr '\n' ' ')
+fi
+
 echo "Program \"$0\":"
 echo "Tips :"
 echo "-g anyvalue	==> compilation with full flag of gcc \"-Wall -Werror -Wextra \""
@@ -45,22 +59,5 @@ echo ""
 
 echo "------------------"
 echo "Compilation with argument : $@"
-if [ -z "$gccflag" ]
-then
-	if [ -z "$wordfile" ]
-	then
-		gcc $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out | cat -e
-	else
-		echo "Compilation with word file"
-		gcc $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out $(cat $wordfile | tr '\n' ' ') | cat -e
-	fi
-else
-	if [ -z "$wordfile" ]
-	then
-		gcc -Wall -Werror -Wextra $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out | cat -e
-	else
-	echo "Compilation with word file"
-		gcc -Wall -Werror -Wextra $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out $(cat $wordfile | tr '\n' ' ') || cat -e
-	fi
-fi
+gcc $gcc_flag $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out $word_file | cat -e
 echo ""
