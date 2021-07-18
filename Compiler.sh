@@ -1,11 +1,21 @@
 #!/bin/bash
+
+while getopts g:w: flag
+do
+	case "${flag}" in
+		g) gccflag=${OPTARG};;
+		w) wordfile=${OPTARG};;
+	esac
+done
+
 clear && echo "Terminal cleared"
+echo "gccflag: $gccflag";
+echo "wordfile: $wordfile";
 
 echo "Program \"$0\":"
-echo "Tips : if execution of program with one argument = Compile with flag -Wall -Werror -Wextra"
-echo "e.g :"
-echo "./compile.sh flag	==> gcc -Wall -Werror -Wextra file.c"
-echo "./compile.sh 		==> gcc file.c"
+echo "Tips :"
+echo "-g anyvalue	==> compilation with full flag of gcc \"-Wall -Werror -Wextra \""
+echo "-w file		==> compilation with word file (useful for strjoin or strsplit)"
 echo ""
 
 echo "------------------"
@@ -34,11 +44,23 @@ find . -type f -name "*.c"
 echo ""
 
 echo "------------------"
-echo "Compilation with argument : $1"
-if [ -z "$1" ]
+echo "Compilation with argument : $@"
+if [ -z "$gccflag" ]
 then
-	gcc $(find . -type f -name "*.c" | tr '\n' ' ') && ./a.out | cat -e
+	if [ -z "$wordfile" ]
+	then
+		gcc $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out | cat -e
+	else
+		echo "Compilation with word file"
+		gcc $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out $(cat $wordfile | tr '\n' ' ') | cat -e
+	fi
 else
-	gcc -Wall -Werror -Wextra $(find . -type f -name "*.c" | tr '\n' ' ') && ./a.out | cat -e
+	if [ -z "$wordfile" ]
+	then
+		gcc -Wall -Werror -Wextra $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out | cat -e
+	else
+	echo "Compilation with word file"
+		gcc -Wall -Werror -Wextra $(find . -type f -name "*.c" | tr '\n' ' ') && time ./a.out $(cat $wordfile | tr '\n' ' ') || cat -e
+	fi
 fi
 echo ""
