@@ -17,8 +17,11 @@ char *ft_strjoin(int size, char **strs, char *sep);
 
 // Ex05
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	(void) argc;
+	(void) argv;
+
 	printf("MISC item :\nINT_MIN : %d\nINT_MAX : %d\n", INT_MIN, INT_MAX);
 
 	printf("###############################\n");
@@ -130,13 +133,23 @@ int	main(void)
 //////////////////////////////////////////////////
 	printf("###############################\n");
 	printf("Ex03\n");
-	#define EX03_S	5
-	char	str03[EX03_S][INT_MAX] = {"Hello", "World", "of", "Warcraft", "!"};
-	char	*res03;
-	const char	sep03	= "_";
+	#define EX03_S	6
+//	char	str03[EX03_S][CHAR_MAX] = {"Hello", "World", "of", "Warcraft", "!", "End"};
 
-	res03 = strjoin(sep03, str03[0], str03[1], str03[2], str03[3], str03[4]);
-	printf("res03 = %s\n", res03);
+	char	*res03;
+	char	sep03[]	= "_";
+
+	int		i03 = 0;
+	while (i03 < argc)
+	{
+		printf("pointer txt = %p\ttxt03[%d] = %s\n", argv[i03], i03, argv[i03]);
+		i03++;
+	}
+
+	res03 = ft_strjoin(argc, argv, sep03);
+	printf("size = %d\tpointer res03 = %p\ttxt = %s\n", argc, &res03, res03);
+	res03 = ft_strjoin(0, argv, sep03);
+	printf("size = %d\tpointer res03 = %p\ttxt = %s\n", 0, &res03, res03);
 
 	printf("\n");
 
