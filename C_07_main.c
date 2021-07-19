@@ -14,7 +14,7 @@ int ft_ultimate_range(int **range, int min, int max);
 // Ex03
 char *ft_strjoin(int size, char **strs, char *sep);
 // Ex04
-
+char *ft_convert_base(char *nbr, char *base_from, char *base_to);
 // Ex05
 
 int	main(int argc, char **argv)
@@ -156,6 +156,28 @@ int	main(int argc, char **argv)
 //////////////////////////////////////////////////
 	printf("###############################\n");
 	printf("Ex04\n");
+
+	#define EX04_TEST_S	8
+	#define EX04_BASE_S	4
+	char	txt04[EX04_TEST_S][CHAR_MAX] = {"0", "1", "5", "102", "42", "-42", "-2147483", "-2147483648"};
+	char	base[EX04_BASE_S][CHAR_MAX] = {"0123456789", "01", "0123456789ABCDEF", "poneyvif"};
+
+	int	i04 = 0;
+	int	j04 = 0;
+	while (i04 < EX04_TEST_S)
+	{
+		printf("char nbr = %s\n", txt04[i04]);
+		j04 = 0;
+		while (j04 < EX04_BASE_S)
+		{
+			printf("base_from = %s\tbase_to = %s\n", base[j04], "0");
+			ft_convert_base(txt04[i04], base[j04], base[0]);
+			j04++;
+			printf("----------------------\n");
+		}
+		i04++;
+		printf("@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@\n");
+	}
 
 
 	printf("\n");
