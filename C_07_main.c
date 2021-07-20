@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	printf("Ex00\n");
 
 	#define EX00_S	5
-	char	txt001[EX00_S][CHAR_MAX] = {"42", "Hello", "World", "", "toto"};
+	char	txt001[EX00_S][CHAR_MAX] = {"" ,"42", "Hello", "World", "Bonjour 42, Coment ca va ?"};
 	char	*ptr001;
 	char	*ptr002;
 	int		i00 = 0;
@@ -37,14 +37,14 @@ int	main(int argc, char **argv)
 
 	while (i00 < EX00_S)
 	{
-		printf("ORIGINAL : i_01 = %d\n", i00);
+		printf("ORIGINAL : i00 = %d\n", i00);
 		printf("BEFORE : txt = %s\tptr = %s\n", txt001[i00], ptr001);
 		ptr001 = strdup(txt001[i00]);
 		printf("AFTER : txt = %s\tptr = %s\n", txt001[i00], ptr001);
 
 		printf("------------------------------\n");
 
-		printf("MYFUNC : i_01 = %d\n", i00);
+		printf("MYFUNC : i00 = %d\n", i00);
 		printf("BEFORE : txt = %s\tptr = %s\n", txt001[i00], ptr002);
 		ptr002 = ft_strdup(txt001[i00]);
 		printf("AFTER : txt = %s\tptr = %s\n", txt001[i00], ptr002);
@@ -63,8 +63,8 @@ int	main(int argc, char **argv)
 	printf("Ex01\n");
 
 	#define EX01_S	5
-	int	min01[EX01_S] = {0, 0, -10, 0, -20};
-	int	max01[EX01_S] = {10, 1, 10, -5, -10};
+	int	min01[EX01_S] = {0, 0, 0, 0, -20};
+	int	max01[EX01_S] = {-10, 0, 1, 10, 10};
 	int	*ptr011;
 	int	i01 = 0;
 	int j01 = 0;
@@ -73,6 +73,7 @@ int	main(int argc, char **argv)
 
 	while (i01 < EX01_S)
 	{
+		ptr011 = 0;
 		printf("BEFORE ptr = %p\n", ptr011);
 		printf("min = %d\tmax = %d\n", min01[i01], max01[i01]);
 		ptr011 = ft_range(min01[i01], max01[i01]);
@@ -81,7 +82,7 @@ int	main(int argc, char **argv)
 		k01 = 0;
 		while (j01 < max01[i01])
 		{
-			printf("nb = %d\n", ptr011[k01]);
+			printf("list of nb = %d\n", ptr011[k01]);
 			j01++;
 			k01++;
 		}
@@ -98,8 +99,8 @@ int	main(int argc, char **argv)
 	printf("###############################\n");
 	printf("Ex02\n");
 	#define EX02_S	5
-	int	min02[EX02_S] = {0, 0, -10, 0, -20};
-	int	max02[EX02_S] = {10, 1, 10, -5, -10};
+	int	min02[EX02_S] = {0, 0, 0, 0, -20};
+	int	max02[EX02_S] = {-10, 0, 1, 10, 10};
 	int	*ptr021;
 	int	res02 = 0;
 	int	i02 = 0;
@@ -146,8 +147,10 @@ int	main(int argc, char **argv)
 		i03++;
 	}
 
+	res03 = 0;
 	res03 = ft_strjoin(argc, argv, sep03);
 	printf("size = %d\tpointer res03 = %p\ttxt = %s\n", argc, &res03, res03);
+	res03 = 0;
 	res03 = ft_strjoin(0, argv, sep03);
 	printf("size = %d\tpointer res03 = %p\ttxt = %s\n", 0, &res03, res03);
 
@@ -157,23 +160,36 @@ int	main(int argc, char **argv)
 	printf("###############################\n");
 	printf("Ex04\n");
 
-	#define EX04_TEST_S	8
-	#define EX04_BASE_S	4
-	char	txt04[EX04_TEST_S][CHAR_MAX] = {"0", "1", "5", "102", "42", "-42", "-2147483", "-2147483648"};
-	char	base[EX04_BASE_S][CHAR_MAX] = {"0123456789", "01", "0123456789ABCDEF", "poneyvif"};
-
+	#define EX04_TEST_S	2
+	#define EX04_BASE_S	7
+//	char	txt04[EX04_TEST_S][CHAR_MAX] = {"0", "1", "5", "42", "-42", "-2147483", "-2147483648", "q", "w", "21"};
+//	char	txt04[EX04_TEST_S][CHAR_MAX] = {"  \t 12", "++--+-12A", "", "-2147483648", "-80000000"};
+	char	txt04[EX04_TEST_S][CHAR_MAX] = {"  \t 12", "++--+-12A"};
+	char	base[EX04_BASE_S][CHAR_MAX] = {"", "1", "01123456789", "0123456789", "01", "0123456789ABCDEF", "poneyvif"};
+	char	*result04;
+	result04 = 0;
 	int	i04 = 0;
 	int	j04 = 0;
+	int	k04 = 0;
 	while (i04 < EX04_TEST_S)
 	{
-		printf("char nbr = %s\n", txt04[i04]);
 		j04 = 0;
 		while (j04 < EX04_BASE_S)
 		{
-			printf("base_from = %s\tbase_to = %s\n", base[j04], "0");
-			ft_convert_base(txt04[i04], base[j04], base[0]);
+			k04 = 0;
+			while (k04 < EX04_BASE_S)
+			{
+				result04 = 0;
+				printf("BEFORE result pointer = %p\tresult text = %s\n", result04, result04);
+				printf("char nbr = %s\n", txt04[i04]);
+				printf("base_from = %s\tbase_to = %s\n", base[j04], base[k04]);
+				result04 = ft_convert_base(txt04[i04], base[j04], base[k04]);
+				k04++;
+				printf("AFTER result pointer = %p\tresult text = %s\n", result04, result04);
+				printf("----------------------\n\n");
+			}
 			j04++;
-			printf("----------------------\n");
+			printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
 		}
 		i04++;
 		printf("@@@@@@@@@@@@@@@@@\n@@@@@@@@@@@@@@@@@\n");
