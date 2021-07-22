@@ -1,0 +1,6 @@
+Credentials cache: API:E618CFD8-FCA0-428C-BC05-18ADCA417E61
+        Principal: abarrier@42.FR
+
+  Issued                Expires             Flags    Principal
+Jun 28 16:22:31 2021  Jul  5 16:22:31 2021  FPRIA  krbtgt/42.FR@42.FR
+Jun 28 16:22:32 2021  Jul  5 16:22:31 2021  FPA    HTTP/student-storage-2.42.fr@42.FR
